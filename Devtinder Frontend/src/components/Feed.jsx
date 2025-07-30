@@ -10,7 +10,7 @@ const Feed = () => {
   const user = useSelector((store) => store.user);
   const userFeed = useSelector((store) => store.feed);
   const getFeed = async () => {
-    if (userFeed) return;
+    if (userFeed || !user) return;
     try {
       const feed = await axios.get(BASE_URL + "/feed", {
         withCredentials: true,
@@ -23,8 +23,11 @@ const Feed = () => {
   useEffect(() => {
     getFeed();
   }, []);
-
-  if (!user) <h1 className="flex justify-center">Login Please...</h1>;
+  if (!user) {
+    return (
+      <h1 className="flex justify-center mt-20 text-xl">Login Please...</h1>
+    );
+  }
   if (!userFeed) <h1 className="flex justify-center">No new user available</h1>;
 
   return (
