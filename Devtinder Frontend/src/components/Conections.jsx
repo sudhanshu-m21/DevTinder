@@ -3,6 +3,7 @@ import { BASE_URL } from "../constant";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addConnection } from "../utils/allConnection";
+import { Link } from "react-router-dom";
 
 const Conections = () => {
   const dispatch = useDispatch();
@@ -27,11 +28,11 @@ const Conections = () => {
     <div className="p-4 m-20">
       <h1 className="text-3xl font-bold text-center mb-4">Connections</h1>
       {allConnections && allConnections.length > 0 ? (
-        allConnections.map((connection, index) => {
-          const { firstName, lastName, age, gender, about } = connection;
+        allConnections.map((connection) => {
+          const { _id, firstName, lastName, age, gender, about } = connection;
           return (
             <div
-              key={index}
+              key={_id}
               className="p-4 mb-4 border bg-base-300 rounded-lg shadow-md w-1/2 mx-auto"
             >
               <div className="flex items-center mb-4">
@@ -46,6 +47,9 @@ const Conections = () => {
                   {gender && <p className="text-sm text-white-500">{gender}</p>}
                   <p className="text-white-500">{about}</p>
                 </div>
+                <Link to={"/chat/" + _id}>
+                  <button className="btn btn-secondary">Chat</button>
+                </Link>
               </div>
             </div>
           );

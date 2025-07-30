@@ -16,3 +16,6 @@ node_modules
 .env
 .vercel
 .DS_Store
+payments.js
+razorpay.js
+constants.js

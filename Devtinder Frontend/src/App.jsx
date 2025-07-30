@@ -8,6 +8,8 @@ import Feed from "./components/Feed";
 import Conections from "./components/Conections";
 import Request from "./components/Request";
 import PasswordChange from "./components/PasswordChange";
+import Premium from "./components/Premium";
+import Chat from "./components/Chat";
 function App() {
   return (
     <Provider store={appStore}>
@@ -23,6 +25,8 @@ function App() {
             />
             <Route path="/conections" element={<Conections />} />
             <Route path="/request" element={<Request />} />
+            <Route path="/premium" element={<Premium />} />
+            <Route path="/chat/:targetUserId" element={<Chat />} />
           </Route>
         </Routes>
       </BrowserRouter>
