@@ -8,6 +8,7 @@ const initializeSocket = (server) => {
   const io = socket(server, {
     cors: {
       origin: allowedOrigins,
+      credentials: true,
     },
   });
   io.on("connection", (socket) => {
