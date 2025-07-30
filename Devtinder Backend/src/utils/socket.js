@@ -7,7 +7,7 @@ const allowedOrigins = [
 const initializeSocket = (server) => {
   const io = socket(server, {
     cors: {
-      origin: allowedOrigins,
+      origin: "https://devtinder-m28a.onrender.com",
       credentials: true,
     },
   });
