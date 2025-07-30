@@ -1,10 +1,13 @@
 const socket = require("socket.io");
 const { Chat } = require("../models/chat");
-
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://devtinder-m28a.onrender.com",
+];
 const initializeSocket = (server) => {
   const io = socket(server, {
     cors: {
-      origin: "http://localhost:5173",
+      origin: allowedOrigins,
     },
   });
   io.on("connection", (socket) => {
