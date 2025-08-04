@@ -7,10 +7,6 @@ const cors = require("cors");
 const http = require("http");
 app.use(express.json());
 app.use(cookieParser());
-// const allowedOrigins = [
-//   "http://localhost:5173",
-//   "https://devtinder-m28a.onrender.com",
-// ];
 app.use(
   cors({
     origin: "https://devtinder-m28a.onrender.com",
