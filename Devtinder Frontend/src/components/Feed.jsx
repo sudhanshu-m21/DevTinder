@@ -25,7 +25,9 @@ const Feed = () => {
   }, []);
   if (!user) {
     return (
-      <h1 className="flex justify-center mt-20 text-xl">Login Please...</h1>
+      <h1 className="flex justify-center mt-20 text-xl">
+        Wait for few second for Login.....
+      </h1>
     );
   }
   if (!userFeed) <h1 className="flex justify-center">No new user available</h1>;
