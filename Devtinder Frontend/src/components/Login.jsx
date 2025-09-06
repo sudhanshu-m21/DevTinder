@@ -106,6 +106,11 @@ const Login = () => {
         >
           {!isLogin ? "Existing user? Login here" : "New user? signUp here"}
         </p>
+        <p className="text-gray-700 text-sm mt-2 text-center">
+          <strong>Guest Email:</strong> test@gmail.com
+          <br />
+          <strong>Password:</strong> Test@123
+        </p>
       </fieldset>
     </div>
   );
