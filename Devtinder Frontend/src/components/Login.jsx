@@ -17,7 +17,7 @@ const Login = () => {
   const user = useSelector((state) => state.user);
   useEffect(() => {
     if (user && user._id) {
-      navigate("/profile");
+      navigate("/");
     }
   }, [user, navigate]);
   const handleSignUp = async () => {
@@ -28,7 +28,7 @@ const Login = () => {
         { withCredentials: true }
       );
       dispatch(addUser(res?.data?.data));
-      navigate("/profile");
+      navigate("/");
     } catch (err) {
       setError(err?.response?.data || "something went wrong");
     }
