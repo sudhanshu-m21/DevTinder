@@ -1,10 +1,9 @@
 import axios from "axios";
 import { BASE_URL } from "../constant";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { removeFeedUser } from "../utils/feedSlice";
-import { useEffect, useState } from "react";
 
-const UserCard = ({ user }) => {
+const UserCard = ({ user, role }) => {
   const dispatch = useDispatch();
   const { _id, firstName, lastName, about, age, gender } = user;
   const handleClick = async (status, _id) => {
@@ -34,20 +33,22 @@ const UserCard = ({ user }) => {
           {gender && <p>{gender}</p>}
           <p>{about}</p>
 
-          <div className="card-actions justify-end">
-            <button
-              className="btn btn-primary"
-              onClick={() => handleClick("interested", _id)}
-            >
-              Interested
-            </button>
-            <button
-              className="btn btn-secondary"
-              onClick={() => handleClick("ignored", _id)}
-            >
-              Ignore
-            </button>
-          </div>
+          {role !== "profile" && (
+            <div className="card-actions justify-end">
+              <button
+                className="btn btn-primary"
+                onClick={() => handleClick("interested", _id)}
+              >
+                Interested
+              </button>
+              <button
+                className="btn btn-secondary"
+                onClick={() => handleClick("ignored", _id)}
+              >
+                Ignore
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
